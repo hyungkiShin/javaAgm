@@ -10,7 +10,7 @@ public class Hash_V1 {
         this.hashTable = new Slot[size];
     }
 
-    public class Slot {
+    public static class Slot {
         String key;
         String value;
         Slot next;
@@ -38,7 +38,7 @@ public class Hash_V1 {
             Slot triggerSlot = this.hashTable[address];
             Slot saveSlot = this.hashTable[address];
             while (triggerSlot != null) {
-                if(triggerSlot.key == key) {
+                if(triggerSlot.key.equals(key)) {
                     triggerSlot.value = value;
                     return;
                 } else {
@@ -60,7 +60,7 @@ public class Hash_V1 {
         if(hashTable[address] != null) {
             Slot findSlot = this.hashTable[address];
             while (findSlot != null) {
-                if(findSlot.key == key) {
+                if(findSlot.key.equals(key)) {
                     return findSlot.value;
                 } else {
                     findSlot = findSlot.next;

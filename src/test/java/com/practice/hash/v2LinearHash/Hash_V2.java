@@ -10,7 +10,7 @@ public class Hash_V2 {
         this.hashTable = new Slot[size];
     }
 
-    public class Slot {
+    public static class Slot {
         String key;
         String value;
 
@@ -33,11 +33,10 @@ public class Hash_V2 {
 
     private void extracted(final String key, final String value, final Integer address) {
         if (hashTable[address] != null) {
-            if(hashTable[address].key == key) {
+            if(hashTable[address].key.equals(key)) {
                 hashTable[address].value = value;
-                return;
             } else {
-                Integer currAddress = address + 1;
+                int currAddress = address + 1;
                 while (hashTable[currAddress] != null) {
                     if (hashTable[currAddress].key == key) {
                         hashTable[currAddress].value = value;
@@ -51,7 +50,6 @@ public class Hash_V2 {
                 }
                 this.hashTable[currAddress] = new Slot(key, value);
             }
-            return;
         } else {
             this.hashTable[address] = new Slot(key, value);
         }
@@ -61,7 +59,7 @@ public class Hash_V2 {
     public String getDataFunction(String key) {
         Integer address = hashFunction(key);
         if(hashTable[address] != null) {
-            if(hashTable[address].key == key) {
+            if(hashTable[address].key.equals(key)) {
                 return hashTable[address].value;
             } else {
                 Integer currAddress = address + 1;
