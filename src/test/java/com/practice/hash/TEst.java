@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 public class TEst {
     Hash_V1 hash1 = new Hash_V1(20);
     Hash_V2 hash2 = new Hash_V2(20);
@@ -47,4 +49,17 @@ public class TEst {
         Assertions.assertThat(형기).isEqualTo("01012341234");
     }
 
+    @Test
+    @DisplayName("UtilTestHashMap")
+    void UtilTestHashMap() {
+        HashMap<Integer, String> map2 = new HashMap();
+        map2.put(1, "01012341234");
+        map2.put(2, "01023452345");
+        map2.put(3, "01045671234");
+
+        HashMap<String, String> map3 = new HashMap();
+        map3.put("DDDD", "0102341234");
+
+        System.out.println("map3 = " + map3);
+    }
 }
