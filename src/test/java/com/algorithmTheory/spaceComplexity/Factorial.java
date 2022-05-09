@@ -51,6 +51,7 @@ public class Factorial {
     @Test
     void factorialFunc_test2() {
         final int i = factorialFunc2(5);
+
         System.out.println("i = " + i);
     }
 }
