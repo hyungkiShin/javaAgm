@@ -24,6 +24,17 @@ public class InsertionSort {
     }
 
     @Test
+    @DisplayName("테스트명")
+    void 테스트명() {
+        // given
+        // when
+        // then
+        int a[] = new int[4 + 1];
+        log.info("a={}",a );
+
+    }
+
+    @Test
     @DisplayName("삽입정렬")
     void 삽입정렬() {
         for (int index = 0; index < data.size() - 1; index++) {
