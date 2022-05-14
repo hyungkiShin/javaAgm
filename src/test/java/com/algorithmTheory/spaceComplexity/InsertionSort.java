@@ -46,7 +46,6 @@ public class InsertionSort {
                 }
             }
         }
-
         log.info("data={}",data);
     }
 }
