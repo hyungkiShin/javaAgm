@@ -1,4 +1,4 @@
-package com.algorithmTheory.spaceComplexity.quick;
+package com.algorithmTheory.spaceComplexity.sort.quick;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;

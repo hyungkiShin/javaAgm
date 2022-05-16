@@ -1,4 +1,4 @@
-package com.algorithmTheory.spaceComplexity.dynamic;
+package com.algorithmTheory.spaceComplexity.sort.dynamic;
 
 public class Dynamic {
 

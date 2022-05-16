@@ -1,4 +1,4 @@
-package com.algorithmTheory.spaceComplexity;
+package com.algorithmTheory.spaceComplexity.sort;
 
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;

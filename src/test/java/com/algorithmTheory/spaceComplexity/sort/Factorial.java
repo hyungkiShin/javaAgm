@@ -1,4 +1,4 @@
-package com.algorithmTheory.spaceComplexity;
+package com.algorithmTheory.spaceComplexity.sort;
 
 import org.junit.jupiter.api.Test;
 
