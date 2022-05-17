@@ -1,4 +1,4 @@
-package com.practice.javacodingtestpractice;
+package com.practice.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
