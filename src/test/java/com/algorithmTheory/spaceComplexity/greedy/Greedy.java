@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 @Slf4j
@@ -39,5 +41,47 @@ class Greedy {
     void 동전_문제() {
         ArrayList<Integer> coinList = new ArrayList<Integer>(List.of(500,100,50,1));
         coinFunc(4720, coinList);
+    }
+
+    /*
+     * ### 문제2: 부분 배낭 문제 (Fractional Knapsack Problem)
+        - 무게 제한이 k인 배낭에 최대 가치를 가지도록 물건을 넣는 문제
+        - 각 물건은 무게(w)와 가치(v)로 표현될 수 있음
+        - 물건은 쪼갤 수 있으므로 물건의 일부분이 배낭에 넣어질 수 있음, 그래서 Fractional Knapsack Problem 으로 부름
+        - Fractional Knapsack Problem 의 반대로 물건을 쪼개서 넣을 수 없는 배낭 문제도 존재함 (0/1 Knapsack Problem 으로 부름)
+     */
+
+    @Test
+    @DisplayName("부분 배낭 문제")
+    void 부분_배낭_문제() {
+        Integer[][] objectList = { {10,10}, {15,12}, {20,10}, {25,8}, {30,5} };
+        knapsackFunc(objectList, 30.0);
+    }
+
+    // capacity: 최대 배낭이 가질 수 있는 무게
+    void knapsackFunc(Integer[][] objectList, double capacity) {
+        double totalValue = 0.0;
+        double fraction = 0.0;
+
+        Arrays.sort(objectList, new Comparator<Integer[]>() {
+            @Override
+            public int compare(final Integer[] o1, final Integer[] o2) {
+                return (o2[1]/ o2[0]) - (o1[1]/ o1[0]); // 무게를 가치로 나눠줘야 한다.
+            }
+        });
+
+        for (final Integer[] integers : objectList) {
+            if ((capacity - (double) integers[0] > 0)) {
+                capacity -= (double) integers[0];
+                totalValue += (double) integers[1];
+                log.info("무게 = {}, 가치 = {}", integers[0], integers[1]);
+            } else {
+                fraction = capacity / (double) integers[0];
+                totalValue = (double) integers[1] * fraction;
+                log.info("무게 = {}, 가치 = {}, 비율 = {}", integers[0], integers[1], fraction);
+                break;
+            }
+        }
+        log.info("총 담을 수 있는 가치 = {}", totalValue);
     }
 }
